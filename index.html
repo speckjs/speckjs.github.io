@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>SpeckJS - Comment Driven Development</title>
+  <link rel="icon" type="image/png" href="./assets/32x32.png">
+  <link type="text/css" href="./assets/pages.css" media="all" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--
+  #########################################
+  Hero Section
+  #########################################
+  -->
+  <section id="hero-spot" class="hero-spot">
+    <a href="#"><img  src="./assets/SpeckJS-logo.png" alt="SpeckJS" class="logo"></a>
+      <h2>Comment Driven Development</h2>
+      <a href="https://github.com/speckjs/speckjs/" class="help-link">Fork it on GitHub</a>
+  </section>
+
+  <!--
+  #########################################
+  Beginning Tutorial
+  #########################################
+  -->
+  <section id="tutorial" class="tutorial">
+    <h1>Write vanilla comments that automagically convert into full test spec files.</h1>
+    <h2>SpeckJS allows you to get started using Test-Driven Development on a new project, to quickly add unit-tests to your existing project, or anywhere in between. Ready? Let’s get started.</h2>
+
+    <ul id="user-site" class="tutorial-list wrapper active">
+      <li id="create-repo-step">
+        <h4>Add SpeckJS formatted comments to your file</h4>
+        <div class="terminal">
+          <div class="header">yourFile.js</div>
+          <div class="shell">
+            <p class="speckjscomment">// test > sum function</p>
+            <p class="speckjscomment">// # sum(1, 2) == 3 (returns the sum of both params)</p>
+            <p class="speckjscomment">// # sum(3, 4) == 7 (returns the sum of both params)</p>
+            <p>function sum(a, b) {</p>
+            <p>&nbsp;&nbsp;return a + b;</p>
+            <p>};</p>
+          </div>
+        </div>
+      </li>
+
+      <!--
+      #########################################
+      Tutorial Selector
+      #########################################
+      -->
+      <li class="question">
+        <h4>Pick your favorite tool</h4>
+        <ul class="tabs">
+          <li><a id="option-terminal" href="https://pages.github.com/#terminal-step-1" class="selected">npm</a></li>
+          <li><a id="option-ghfw" href="https://pages.github.com/#setup-in-desktop" class="">grunt</a></li>
+          <li><a id="option-ghfm" href="https://pages.github.com/#setup-in-desktop" class="">gulp</a></li>
+          <li><a id="option-newuser-m" href="https://pages.github.com/#new-user-step-1" class="">atom</a></li>
+        </ul>
+      </li>
+
+      <!--
+      #########################################
+      Terminal Tutorial
+      #########################################
+      -->
+      <li id="terminal-step-1" class="option-terminal">
+        <h4>Install the npm module</h4>
+        <p>From within your project directory run:</p>
+
+        <div class="terminal">
+          <div class="header"></div>
+          <div class="shell">
+            <p><span>~ $ </span><span class="speckjscomment">npm install speckjs --save</span></p>
+          </div>
+        </div>
+      </li>
+
+      <!-- terminal tutorial -->
+      <li class="option-terminal">
+        <h4>Hello World</h4>
+        <p>Require speckjs from within your project files:</p>
+
+        <div class="terminal">
+          <div class="header"></div>
+          <div class="shell">
+            <p class="speckjscomment">var speck = require('speckjs');</p>
+            <p class="speckjscomment">speck.build(file, option);</p>
+          </div>
+        </div>
+      </li>
+
+      <!--
+      #########################################
+      Grunt Tutorial
+      #########################################
+      -->
+      <li id="setup-in-desktop" class="option-ghfw hidden animate-in">
+        <h4>Install the grunt plugin</h4>
+        <p>From within your project directory run:</p>
+
+        <div class="terminal">
+          <div class="header"></div>
+          <div class="shell">
+            <p><span>~ $ </span><span class="speckjscomment">npm install grunt-speck --save-dev</span></p>
+          </div>
+        </div>
+      </li>
+
+      <!-- grunt tutorial -->
+      <li class="option-ghfw  animate-in hidden">
+        <h4>Set up your Gruntfile.js</h4>
+        <p>Once the plugin has been installed, it may be enabled inside your Gruntfile so:</p>
+
+        <div class="terminal">
+          <div class="header">Gruntfile.js</div>
+          <div class="shell">
+            <p class="speckjscomment">grunt.loadNpmTasks('grunt-speck');</p>
+          </div>
+        </div>
+
+        <p>and configured as:</p>
+
+        <div class="terminal">
+          <div class="header">Gruntfile.js</div>
+          <code class="shell">
+            <pre class="speckjscomment">grunt.initConfig({
+    speck: {
+      options: {
+        specType: 'tape',
+        specName: '--testSpec',
+        logs: false
+      },
+      target: {
+        src: ['src/*.js'],
+        dest: 'test/specs/'
+      },
+    },
+  });      </pre>
+          </code>
+        </div>
+      </li>
+
+      <!-- grunt tutorial -->
+      <li class="option-ghfw option-newuser-w hidden animate-in">
+        <h4>Run grunt</h4>
+        <div class="terminal">
+          <div class="header"></div>
+          <div class="shell">
+            <p><span>~ $ </span><span class="speckjscomment">grunt speck</span></p>
+          </div>
+        </div>
+      </li>
+
+      <!--
+      #########################################
+      Gulp Tutorial
+      #########################################
+      -->
+      <li id="setup-in-desktop" class="option-ghfm hidden animate-in">
+        <h4>Install the gulp plugin</h4>
+        <p>From within your project directory run:</p>
+
+        <div class="terminal">
+          <div class="header"></div>
+          <div class="shell">
+            <p><span>~ $ </span><span class="speckjscomment">npm install grunt-speck --save-dev</span></p>
+          </div>
+        </div>
+      </li>
+
+      <!-- gulp tutorial -->
+      <li class="option-ghfm  animate-in hidden">
+        <h4>Set up your gulpfile.js</h4>
+        <p>Once the plugin has been installed, it may be enabled inside your Gruntfile so:</p>
+
+        <div class="terminal">
+          <div class="header">Gruntfile.js</div>
+          <div class="shell">
+            <p class="speckjscomment">grunt.loadNpmTasks('grunt-speck');</p>
+          </div>
+        </div>
+
+        <p>and configured as:</p>
+
+        <div class="terminal">
+          <div class="header">Gruntfile.js</div>
+          <code class="shell">
+            <pre class="speckjscomment">grunt.initConfig({
+    speck: {
+      options: {
+        specType: 'tape',
+        specName: '--testSpec',
+        logs: false
+      },
+      target: {
+        src: ['src/*.js'],
+        dest: 'test/specs/'
+      },
+    },
+  });       </pre>
+          </code>
+        </div>
+      </li>
+
+      <!-- gulp tutorial -->
+      <li class="option-ghfm option-newuser-w hidden animate-in">
+        <h4>Run gulp</h4>
+        <div class="terminal">
+          <div class="header"></div>
+          <div class="shell">
+            <p><span>~ $ </span><span class="speckjscomment">gulp speck</span></p>
+          </div>
+        </div>
+      </li>
+
+      <!--
+      #########################################
+      Gulp && grunt %% terminal end of tutorial Tutorial
+      #########################################
+      -->
+      <li class="option-terminal option-ghfw option-ghfm animate-in">
+        <h4>…and Boom!</h4>
+
+        <div class="terminal">
+          <div class="header"></div>
+          <code class="shell">
+            <pre class="speckjscomment">var test = require('tape');
+    var file = require('./yourFile.js');
+
+    test('diff function', function(t) {
+      t.plan(1);
+      t.equal(3, file.sum(1,2), 'returnt the sum of both params');
+      t.equal(7, file.sum(3,4), 'returnt the sum of both params');
+    });</pre>
+        </code>
+      </div>
+        <p>This example show a Tape test. Actually SpeckJS compile spec files for Tape and Jasmine.</p>
+        <p>Check the documentation on <a href="https://github.com/speckjs/speckjs">github.com/speckjs/speckjs</a> for more informations</p>
+
+          <!-- <img  src="./assets/SpeckJS-logo-square-dark.png" class="logo-sq-sm"> -->
+
+      </li>
+
+
+      <!--
+      #########################################
+      Atom Tutorial
+      #########################################
+      -->
+      <li class="option-newuser-m option-newuser-w hidden animate-in">
+        <h4>Download Atom</h4>
+        <p>Atom is a hackable text editor for the 21st Century</p>
+
+        <a class="mac-download" href="https://atom.io/" target="_blank">Download Atom</a>
+      </li>
+
+      <!-- atom tutorial -->
+      <li class="option-newuser-m option-newuser-w hidden animate-in">
+        <h4>Install the atom plugin</h4>
+        <p>Atom is a hackable text editor for the 21st Century</p>
+
+        <img src="./assets/atom-install.png" width="1078" alt="GitHub for Mac screenshot" class="full-size">
+      </li>
+
+      <!-- atom tutorial -->
+      <li class="option-newuser-m option-newuser-w hidden animate-in">
+        <h4>Open your file, run speck and...</h4>
+        <p>Atom is a hackable text editor for the 21st Century</p>
+
+        <img src="./assets/atom-speck-build.gif" width="1078" alt="GitHub for Mac screenshot" class="full-size">
+
+      </li>
+
+
+      <!-- atom tutorial -->
+      <!-- <li class="option-newuser-m option-newuser-w animate-in hidden">
+        <h4>And Boom!</h4>
+        <p>Enter the repository, commit your changes, and press the sync button.</p>
+
+        <img src="./assets/sync-mac.png" alt="GitHub for Mac screenshot" class="full-size">
+      </li> -->
+
+    </ul>
+  </section>
+  <!-- End of tutorial section -->
+
+  <script src="./assets/jquery.js"></script>
+  <script>window.slides = {"ghtraining":"GitHub Training"}</script>
+  <script src="./assets/application.js"></script>
+
+
+  <footer class="page-footer">
+    <ul class="site-footer-links right">
+      <li><a href="https://github.com/speckjs/speckjs/">Github</a></li>
+      <li><a href="https://www.npmjs.com/package/speckjs">Npm</a></li>
+      <li><a href="https://www.npmjs.com/package/grunt-speckjs">Grunt</a></li>
+      <li><a href="#">Gulp</a></li>
+      <li><a href="https://atom.io/packages/speckjs">Atom</a></li>
+    </ul>
+
+    <ul class="site-footer-links">
+      <li>© 2015 <span>SpeckJS</span>.</li>
+    </ul>
+  </footer>
+</body>
+</html>
