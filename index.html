@@ -104,7 +104,7 @@
         <div class="terminal">
           <div class="header"></div>
           <div class="shell">
-            <p><span>~ $ </span><span class="speckjscomment">npm install grunt-speck --save-dev</span></p>
+            <p><span>~ $ </span><span class="speckjscomment">npm install grunt-speckjs --save-dev</span></p>
           </div>
         </div>
       </li>
@@ -117,7 +117,7 @@
         <div class="terminal">
           <div class="header">Gruntfile.js</div>
           <div class="shell">
-            <p class="speckjscomment">grunt.loadNpmTasks('grunt-speck');</p>
+            <p class="speckjscomment">grunt.loadNpmTasks('grunt-speckjs');</p>
           </div>
         </div>
 
@@ -166,7 +166,7 @@
         <div class="terminal">
           <div class="header"></div>
           <div class="shell">
-            <p><span>~ $ </span><span class="speckjscomment">npm install grunt-speck --save-dev</span></p>
+            <p><span>~ $ </span><span class="speckjscomment">npm install gulp-speckjs --save-dev</span></p>
           </div>
         </div>
       </li>
@@ -174,33 +174,35 @@
       <!-- gulp tutorial -->
       <li class="option-ghfm  animate-in hidden">
         <h4>Set up your gulpfile.js</h4>
-        <p>Once the plugin has been installed, it may be enabled inside your Gruntfile so:</p>
+        <p>Once the plugin has been installed, it may be enabled inside your gulpfile so:</p>
 
         <div class="terminal">
-          <div class="header">Gruntfile.js</div>
+          <div class="header">gulpfile.js</div>
           <div class="shell">
-            <p class="speckjscomment">grunt.loadNpmTasks('grunt-speck');</p>
+            <p class="speckjscomment">var speck = require('gulp-speckjs');</p>
           </div>
         </div>
 
         <p>and configured as:</p>
 
         <div class="terminal">
-          <div class="header">Gruntfile.js</div>
+          <div class="header">gulpfile.js</div>
           <code class="shell">
-            <pre class="speckjscomment">grunt.initConfig({
-    speck: {
-      options: {
-        specType: 'tape',
-        specName: '--testSpec',
-        logs: false
-      },
-      target: {
-        src: ['src/*.js'],
-        dest: 'test/specs/'
-      },
-    },
-  });       </pre>
+            <pre class="speckjscomment">gulp.task('speck', function() {
+  return gulp.src('./test/fixtures/*.js')
+    .pipe(foreach(function(stream, file) {
+      return stream
+        .pipe(speck({
+          testFW: 'tape',
+          logs: true,
+          relPath: '../specs/' + path.basename(file.path)
+        }))
+        .pipe(rename({
+          suffix : '_tapeSpec'
+        }));
+    }))
+    .pipe(gulp.dest('./test/fixtures/specs'));
+});       </pre>
           </code>
         </div>
       </li>
@@ -237,7 +239,7 @@
     });</pre>
         </code>
       </div>
-        <p>This example shows a Tape test. SpeckJS compiles tests for both Tape and Jasmine.</p>
+        <p>This example shows a Tape test. SpeckJS compiles tests for Tape, Jasmine, and Mocha/Chai.</p>
         <p>Check the documentation on <a href="https://github.com/speckjs/speckjs">github.com/speckjs/speckjs</a> for more information</p>
 
           <!-- <img  src="./assets/SpeckJS-logo-square-dark.png" class="logo-sq-sm"> -->
@@ -269,7 +271,6 @@
         <h4>Open your file, run speck and...</h4>
 
         <img src="./assets/atom-speck-build.gif" width="1078" alt="GitHub for Mac screenshot" class="full-size">
-
       </li>
 
 
