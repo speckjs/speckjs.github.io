@@ -229,14 +229,15 @@
         <div class="terminal">
           <div class="header"></div>
           <code class="shell">
-            <pre class="speckjscomment">var test = require('tape');
-    var file = require('./yourFile.js');
+            <pre class="speckjscomment">
+var test = require('tape');
+var file = require('./yourFile.js');
 
-    test('diff function', function(t) {
-      t.plan(1);
-      t.equal(3, file.sum(1,2), 'returns the sum of both params');
-      t.equal(7, file.sum(3,4), 'returns the sum of both params');
-    });</pre>
+test('diff function', function(t) {
+  t.plan(1);
+  t.equal(3, file.sum(1,2), 'returns the sum of both params');
+  t.equal(7, file.sum(3,4), 'returns the sum of both params');
+});</pre>
         </code>
       </div>
         <p>This example shows a Tape test. SpeckJS compiles tests for Tape, Jasmine, and Mocha/Chai.</p>
